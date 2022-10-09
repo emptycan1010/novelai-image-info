@@ -21,8 +21,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//fmt.Println(f)
-	os.WriteFile("shangus.txt", []byte(f), 777)
 	if strings.Contains(string(f), "AI generated image") == true {
 		startplace := strings.Index(string(f), string([]byte("tEXtDescription"))) + len("tEXtDescription") + 1
 		endplace := strings.Index(string(f), string(uint8(00))+string(uint8(00))+string(uint8(00))+string(uint8(16)))
@@ -43,5 +41,4 @@ func main() {
 		fmt.Println("정상적인 파일이 아니거나, 값을 가져올수 없습니다.")
 	}
 	in.ReadString('\n')
-	//exec.Command("cmd", "/C", "pause")
 }
